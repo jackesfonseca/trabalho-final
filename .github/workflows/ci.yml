@@ -24,14 +24,14 @@ jobs:
             pip3 install sphinx
             pip3 install sphinx-rtd-theme
             pip install poetry
-
-      - name: Build Container
-        run: |
-          docker-compose build -t trabalho-final
-          docker-compose up -d
-
+            
       - name: Build Doc
         run: |
           sphinx-apidoc -o doc .
           cd src/doc
           make html
+
+      - name: Build Container
+        run: |
+          docker-compose build -t trabalho-final
+          docker-compose up -d
