@@ -24,12 +24,15 @@ jobs:
             pip3 install sphinx
             pip3 install sphinx-rtd-theme
             pip install poetry
-            
+
       - name: Build Doc
-        run: |
-          sphinx-apidoc -o doc .
-          cd src/doc
-          make html
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.8
+          run: |
+            sphinx-apidoc -o doc .
+            cd src/doc
+            make html
 
       - name: Build Container
         run: |
