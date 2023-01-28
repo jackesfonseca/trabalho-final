@@ -7,7 +7,6 @@ on:
     branches: [master]
 
 jobs:
-  
   build:
     runs-on: ubuntu-latest
     steps:
@@ -30,3 +29,9 @@ jobs:
         run: |
           docker-compose build -t trabalho-final
           docker-compose up -d
+
+      - name: Build Doc
+        run: |
+          sphinx-apidoc -o doc .
+          cd /doc
+          make html
