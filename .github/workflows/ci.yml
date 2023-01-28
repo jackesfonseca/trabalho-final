@@ -33,5 +33,5 @@ jobs:
       - name: Build Doc
         run: |
           sphinx-apidoc -o doc .
-          cd /doc
+          cd src/doc
           make html
