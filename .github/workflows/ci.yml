@@ -26,7 +26,10 @@ jobs:
             pip install poetry
 
       - name: App Test
-        run: pytest --cov
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.8
+          run: pytest --cov
 
       - name: Build Doc
         uses: actions/setup-python@v3
