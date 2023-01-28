@@ -27,5 +27,6 @@ jobs:
             pip install poetry
 
       - name: Build Container
-        run: docker-compose build -t trabalho-final
-        run: docker-compose up -d
+        run: |
+          docker-compose build -t trabalho-final
+          docker-compose up -d
