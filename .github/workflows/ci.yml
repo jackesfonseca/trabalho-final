@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step Actions 
+        uses: actions/checkout@v3
+      
+      - name: Solve Dependencies
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+          run: python3 -m venv .env
+          run: env/bin/activate
+          run: pip3 install -r requirements.txt
+          run: pip3 install sphinx
+          run: pip3 install sphinx-rtd-theme
+          run: pip install poetry
+
+      - name: Build Container
+        run: docker-compose build -t trabalho-final
+        run: docker-compose up -d
