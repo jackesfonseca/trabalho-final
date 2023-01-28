@@ -10,3 +10,15 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: lappis
     ports:
       - 27017:27017
+
+  app:
+    container_name: library
+    build: .
+    restart: always
+    command: python src/main.py
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
