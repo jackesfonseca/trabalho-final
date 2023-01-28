@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "poetry-tf"
+name = "trabalho-final-jackes"
 version = "0.1.0"
-description = ""
+description = "Trabalho individual de GCES - UnB"
 authors = ["jackesfonseca <jackesdafonseca@gmail.com>"]
 readme = "README.md"
 packages = [{include = "poetry_tf"}]
