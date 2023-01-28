@@ -50,3 +50,4 @@ jobs:
             poetry config pypi-token.api pypi-AgEIcHlwaS5vcmcCJDMyMmNmNDI2LThhYjQtNGVhNS1hODZiLThmMTY0MDc5YmVmZQACKlszLCI3MzYxOGRhMy0wNzFkLTRjZDktOTZlZC1jNTBmZjFmY2MyYTciXQAABiCq4M2_T2KdcgZOEaKVU_iLSU0ehfLKY3aiMeuld1ruJQ
             poetry install --no-dev
             poetry build
+            poetry publish
