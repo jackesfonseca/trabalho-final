@@ -25,6 +25,9 @@ jobs:
             pip3 install sphinx-rtd-theme
             pip install poetry
 
+      - name: App Test
+        run: pytest --cov
+
       - name: Build Doc
         uses: actions/setup-python@v3
         with:
