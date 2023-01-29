@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Step Actions 
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
       
       - name: Solve Dependencies
-      - uses: actions/setup-python@v3
+        uses: actions/setup-python@v3
         with:
           python-version: 3.8
         run: | 
@@ -27,19 +27,19 @@ jobs:
             pip install poetry
 
       - name: Lint Step
-      - uses: actions/setup-python@v3
+        uses: actions/setup-python@v3
         with:
           python-version: 3.8
         run: pylint src
 
       - name: App Test
-      - uses: actions/setup-python@v3
+        uses: actions/setup-python@v3
         with:
           python-version: 3.8
         run: pytest --cov
 
       - name: Build Doc
-      - uses: actions/setup-python@v3
+        uses: actions/setup-python@v3
         with:
           python-version: 3.8
         run: |
@@ -53,7 +53,7 @@ jobs:
           docker-compose up -d
 
       - name: Publish App
-      - uses: snok/install-poetry@v1
+        uses: snok/install-poetry@v1
         run: |
             cd /poetry-tf
             poetry config pypi-token.api pypi-AgEIcHlwaS5vcmcCJDMyMmNmNDI2LThhYjQtNGVhNS1hODZiLThmMTY0MDc5YmVmZQACKlszLCI3MzYxOGRhMy0wNzFkLTRjZDktOTZlZC1jNTBmZjFmY2MyYTciXQAABiCq4M2_T2KdcgZOEaKVU_iLSU0ehfLKY3aiMeuld1ruJQ
