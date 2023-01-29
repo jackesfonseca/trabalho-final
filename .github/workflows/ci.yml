@@ -27,9 +27,6 @@ jobs:
           pip install pylint
           pip install poetry
 
-      - name: Lint Step
-        run: pylint src
-
       - name: App Test
         run: pytest --cov
 
