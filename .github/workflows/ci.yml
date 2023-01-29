@@ -56,11 +56,7 @@ jobs:
 
       - name: Publish App
         run: |
-          cp requirements.txt poetry-tf
           cd poetry-tf
           poetry config http-basic.pypi jackesfonseca ${{ secrets.PWD }}
-          poetry source add requirements.txt
           poetry install --no-dev
-          rm requirements.txt
           poetry build
-          poetry publish
