@@ -58,6 +58,8 @@ jobs:
         run: |
           cd poetry-tf
           poetry config http-basic.pypi jackesfonseca ${{ secrets.PWD }}
+          cp requirements.txt poetry-tf
           poetry install --no-dev
           poetry build
+          rm poetry-tf/requirements.txt
           poetry publish
