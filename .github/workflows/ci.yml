@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: 3.8
-        run: | 
+          run: | 
             python3 -m venv .env
             env/bin/activate
             pip3 install -r requirements.txt
@@ -30,19 +30,19 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: 3.8
-        run: pylint src
+          run: pylint src
 
       - name: App Test
         uses: actions/setup-python@v3
         with:
           python-version: 3.8
-        run: pytest --cov
+          run: pytest --cov
 
       - name: Build Doc
         uses: actions/setup-python@v3
         with:
           python-version: 3.8
-        run: |
+          run: |
             sphinx-apidoc -o doc .
             cd src/doc
             make html
@@ -54,7 +54,7 @@ jobs:
 
       - name: Publish App
         uses: snok/install-poetry@v1
-        run: |
+          run: |
             cd /poetry-tf
             poetry config pypi-token.api pypi-AgEIcHlwaS5vcmcCJDMyMmNmNDI2LThhYjQtNGVhNS1hODZiLThmMTY0MDc5YmVmZQACKlszLCI3MzYxOGRhMy0wNzFkLTRjZDktOTZlZC1jNTBmZjFmY2MyYTciXQAABiCq4M2_T2KdcgZOEaKVU_iLSU0ehfLKY3aiMeuld1ruJQ
             poetry install --no-dev
