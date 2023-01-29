@@ -24,12 +24,24 @@ jobs:
           pip install -r requirements.txt
           pip install sphinx
           pip install sphinx-rtd-theme
-          pip install pylint
+          pip install flake8
           pip install poetry
           pip install -U pytest
 
+      - name: Set Virtual Environment
+        run: |
+          sudo apt-get install python3-venv
+          python3 -m venv env
+
+      - name: Lint Step
+        run: |
+          cd src
+          flake8 --ignore=E302,E101,E131,W191,W293,W292,W291 --count --select=E9,F63,F7,F82 --exclude=*.pyc,migrations --show-source --statistics
+
       - name: App Test
-        run: coverage run -m pytest
+        run: |
+          cd  tests
+          python __init__.py
 
       - name: Build Doc
         run: |
