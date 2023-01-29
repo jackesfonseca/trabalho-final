@@ -28,7 +28,7 @@ jobs:
           pip install poetry
 
       - name: App Test
-        run: pytest --cov
+        run: coverage run -m pytest
 
       - name: Build Doc
         run: |
