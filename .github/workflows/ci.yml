@@ -23,7 +23,14 @@ jobs:
             pip3 install -r requirements.txt
             pip3 install sphinx
             pip3 install sphinx-rtd-theme
+            pip install pylint
             pip install poetry
+
+      - name: Lint Step
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.8
+          run: pylint src
 
       - name: App Test
         uses: actions/setup-python@v3
