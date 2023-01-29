@@ -27,6 +27,7 @@ jobs:
           pip install flake8
           pip install poetry
           pip install -U pytest
+          pip install http-basic-auth
 
       - name: Set Virtual Environment
         run: |
@@ -60,3 +61,4 @@ jobs:
           poetry config http-basic.pypi jackesfonseca ${{ secrets.PWD }}
           poetry install --no-dev
           poetry build
+          poetry publish
