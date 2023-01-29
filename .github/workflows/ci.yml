@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Step Actions 
         uses: actions/checkout@v3
-      
+        
       - name: Solve Dependencies
         uses: actions/setup-python@v3
         with:
@@ -25,7 +25,6 @@ jobs:
             pip3 install sphinx-rtd-theme
             pip install pylint
             pip install poetry
-
       - name: Lint Step
         uses: actions/setup-python@v3
         with:
@@ -46,14 +45,16 @@ jobs:
             sphinx-apidoc -o doc .
             cd src/doc
             make html
-
       - name: Build Container
         run: |
           docker-compose build -t trabalho-final
           docker-compose up -d
-
       - name: Publish App
         uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
           run: |
             cd /poetry-tf
             poetry config pypi-token.api pypi-AgEIcHlwaS5vcmcCJDMyMmNmNDI2LThhYjQtNGVhNS1hODZiLThmMTY0MDc5YmVmZQACKlszLCI3MzYxOGRhMy0wNzFkLTRjZDktOTZlZC1jNTBmZjFmY2MyYTciXQAABiCq4M2_T2KdcgZOEaKVU_iLSU0ehfLKY3aiMeuld1ruJQ
