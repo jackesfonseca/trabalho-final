@@ -26,6 +26,7 @@ jobs:
           pip install sphinx-rtd-theme
           pip install pylint
           pip install poetry
+          pip install -U pytest
 
       - name: App Test
         run: coverage run -m pytest
