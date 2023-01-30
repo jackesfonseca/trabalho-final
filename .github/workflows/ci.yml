@@ -61,4 +61,3 @@ jobs:
           poetry config http-basic.pypi jackesfonseca ${{ secrets.PWD }}
           poetry install --no-dev
           poetry build
-          poetry publish
